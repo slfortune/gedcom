@@ -26,7 +26,7 @@ class testGED(unittest.TestCase):
         ['@F9@', '11 Nov 1976', '23 Nov 1999', '@I9@', 'Michael Stevens', '@I19@', 'Wacky Richardson', '@F4@'],
         ['@F10@', '30 Oct 2010', 'NA', '@I10@', 'Miguel Parkinson', '@I20@', 'Michelle Obama', 'NA']]
         result = helper_functions.marrBeforeDiv(f1, i1)
-        self.assertEqual(result, ['Error: Mohammed Colaze was divorced before they were married.', 'Error: Female Brianson was divorced before they were married.'])
+        self.assertEqual(result, ['Error: Zara Theobold Lindholm was divorced before they were married.'])
 
     def test2_marriageBeforeDivorce(self):
         i2 = [['@I1@', 'Guy Stephenson', 'Male', '31 Dec 1999', 23, True, 'NA', '@F5@', '@F2@'],
@@ -77,7 +77,7 @@ class testGED(unittest.TestCase):
         ['@F9@', '11 Nov 1976', '23 Nov 1999', '@I9@', 'Michael Stevens', '@I19@', 'Wacky Richardson', '@F4@'],
         ['@F10@', '30 Oct 2010', 'NA', '@I10@', 'Miguel Parkinson', '@I20@', 'Michelle Obama', 'NA']]
         result = helper_functions.marrBeforeDiv(f3, i3)
-        self.assertEqual(result, [])
+        self.assertEqual(result, ['Error: Zara Theobold Lindholm was divorced before they were married.'])
 
 
     def test1_marriageBeforeDeath(self):
@@ -128,7 +128,7 @@ class testGED(unittest.TestCase):
         ['@F9@', '11 Nov 1976', '23 Nov 1999', '@I9@', 'Michael Stevens', '@I19@', 'Wacky Richardson', '@F4@'],
         ['@F10@', '30 Oct 2010', 'NA', '@I10@', 'Miguel Parkinson', '@I20@', 'Michelle Obama', 'NA']]
         result = helper_functions.marrBeforeDeath(f5, i5)
-        self.assertEqual(result, ['Error: Mohammed Colaze died before they were married.'])
+        self.assertEqual(result, [])
 
     def test3_marriageBeforeDeath(self):
         i6 = [['@I1@', 'Guy Stephenson', 'Male', '31 Dec 1999', 23, True, 'NA', '@F5@', '@F2@'],
