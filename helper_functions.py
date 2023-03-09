@@ -103,11 +103,12 @@ def divBeforeDeath(family, individual):
             death = parser.parse(row[6])
             for rowr in family:
                 if rowr[0] == f_id:
-                    div = parser.parse(rowr[2])
-                    if (div < death):
-                        continue
-                    else:
-                        arr.append("Error: " + name + " died before they were divorced.")
+                    if rowr[2] != "NA":
+                        div = parser.parse(rowr[2])
+                        if (div < death):
+                            continue
+                        else:
+                            arr.append("Error: " + name + " died before they were divorced.")
                 else:
                     continue
     return arr
@@ -117,15 +118,11 @@ def lessThan150(family, individual):
     for row in individual:
         f_id = row[8]
         name = row[1]
-        for rowr in family:
-            if rowr[0] == f_id:
-                age = parser.parse(row[4])
-                if (age < 150):
-                    continue
-                else:
-                    arr.append("Error: " + name + " is over 150 years old.")
-            else:
-                continue
+        age = row[4]
+        if (age < 150):
+            continue
+        else:
+            arr.append("Error: " + name + " is over 150 years old.")
     return arr
 
 '''
