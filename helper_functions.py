@@ -39,3 +39,19 @@ def marrBeforeDeath(family, individual):
                 else:
                     continue
     return arr
+
+def birthBeforeMarr(family, individual):
+    arr = []
+    for row_i in individual:
+        f_id = row_i[8]
+        name = row_i[1]
+        p_id = row_i[0]
+        born = parser.parse(row_i[3])
+        for row_f in family:
+            if row_f[0] == f_id:
+                marr = parser.parse(row_f[1])
+                if (marr < born):
+                    continue
+                else:
+                    arr.append("ERROR: FAMILY: US04: ID: "+ p_id +"F_ID: "+ f_id+": " + name + " was married before they were born.")
+    return arr
