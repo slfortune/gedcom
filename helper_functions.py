@@ -125,6 +125,41 @@ def lessThan150(family, individual):
             arr.append("Error: " + name + " is over 150 years old.")
     return arr
 
+def birthBeforePMarriage(family, individual):
+    arr = []
+    for row in individual:
+        f_id = row[8]
+        name = row[1]
+		born = parser.parse(row[3])
+            for rowf in family:
+                if rowf[0] == f_id:
+                    marr = parser.parse(rowr[4])
+                    if (born < marr):
+                        continue
+                    else:
+                        arr.append("Error: " + name + " was born after their parents' marriage.")
+                else:
+                    continue
+    return arr
+	
+def birthBeforePDeath(family, individual):
+    arr = []
+    for row in individual:
+        f_id = row[8]
+        name = row[1]
+		born = parser.parse(row[3])
+        if row[6] != "NA":
+            death = parser.parse(row[6])
+            for rowf in family:
+                if rowf[0] == f_id:
+                    if (born < death):
+                        continue
+                    else:
+                        arr.append("Error: " + name + " was born after their parents' death.")
+                else:
+                    continue
+    return arr
+
 '''
 i1 = [['@I1@', 'Guy Stephenson', 'Male', '31 Dec 1999', 23, True, 'NA', '@F5@', '@F2@'],
 ['@I2@', 'Zara Theobold Lindholm', 'Female', '14 Feb 1972', 51, True, 'NA', 'NA', '@F3@'],
